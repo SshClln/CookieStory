@@ -1,0 +1,16 @@
+services:
+#    cs_blog.example:
+#        class: CookieStory\BlogBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    cookie_story_blog.recette_dao:
+        class: CookieStory\BlogBundle\Dao\RecetteDao
+        arguments: ['@doctrine.orm.entity_manager']
+    cookie_story_blog.tags_dao:
+        class: CookieStory\BlogBundle\Dao\TagsDao
+        arguments: ['@doctrine.orm.entity_manager']
+    cookie_story_blog.layout_dao:
+        class: CookieStory\BlogBundle\Dao\LayoutDao
+        arguments: ['@doctrine.orm.entity_manager']
+    cookie_story_blog.recette_controller:
+        class: CookieStory\BlogBundle\Controller\RecetteController
+        arguments: ['@cookie_story_blog.recette_dao','@cookie_story_blog.layout_dao', '@doctrine.orm.entity_manager', '@cookie_story_blog.tags_dao']

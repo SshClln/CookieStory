@@ -1,0 +1,35 @@
+cookie_story_blog_homepage:
+    path:     /
+    defaults: { _controller: CookieStoryBlogBundle:Default:index }
+
+cookie_story_blog_upload:
+    path:     /upload
+    defaults: { _controller: CookieStoryBlogBundle:Default:upload }
+
+cookie_story_blog_getrecette:
+    path: /recette/find
+    defaults: { _controller: cookie_story_blog.recette_controller:getRecette }
+
+cookie_story_blog_getlisterecette:
+    path: /recette/liste
+    defaults: { _controller: cookie_story_blog.recette_controller:getListeRecette }
+
+cookie_story_blog_getlistetags:
+    path: /tags/liste
+    defaults: { _controller: cookie_story_blog.recette_controller:getListeTags }
+
+cookie_story_blog_saverecette:
+    path: /recette/save
+    defaults: { _controller: cookie_story_blog.recette_controller:saveRecette }
+
+cookie_story_blog_deleterecette:
+    path: /recette/delete
+    defaults: { _controller: cookie_story_blog.recette_controller:deleteRecette }
+
+cookie_story_blog_savecommentaire:
+    path: /recette/saveCommentaire
+    defaults: { _controller: cookie_story_blog.recette_controller:saveCommentaire }
+
+cookie_story_blog_addtag:
+    path: /saveTag
+    defaults: { _controller: cookie_story_blog.recette_controller:addTag }

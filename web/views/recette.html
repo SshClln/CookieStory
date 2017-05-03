@@ -1,0 +1,31 @@
+
+<div ng-repeat="layout in recette.layout | orderBy:'position'">
+  <div ng-if="layout.item=='titre'" class="cs-titre" titre="layout.contenu"></div>
+  <div ng-if="layout.item=='story'" class="cs-story" story="layout.contenu"></div>
+  <div ng-if="layout.item=='ingredients'" class="cs-ingredients" elements="layout.contenu"></div> <!--liste ingrédients-->
+  <div ng-if="layout.item=='recette'" class="cs-recette" elements="layout.contenu"></div>
+  <div ng-if="layout.item=='imageV'" class="cs-image-v" image="layout.contenu"></div>
+  <div ng-if="layout.item=='imageH'" class="cs-image-h" image="layout.contenu"></div>
+</div>
+
+<div class="col-xs-12">
+  <form name="form" ng-submit="addCommentaire(pseudo, contenu)" >
+    <div class="form-group">
+      <label>
+        Pseudo :
+        <input class="form-control" type="text" name="pseudo" ng-model="pseudo"></input>
+      </label>
+      <label>
+        Commentaire :
+        <input class="form-control" type="text" name="commentaire" ng-model="contenu"></input>
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default">Envoyer</button>
+  </form>
+</div>
+
+<div class="col-xs-12" ng-if="countCommentaire">
+  <div class="cs-commentaires" elements="recette.commentaires"></div>
+</div>
+
+<div class="col-xs-12 mb50"></div>

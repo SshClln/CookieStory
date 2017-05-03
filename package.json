@@ -1,0 +1,34 @@
+{
+  "name": "acookiestory",
+  "version": "1.0.0",
+  "description": "Mon super Blog de patisserie",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sasha Collin",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "latest",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssbeautify": "latest",
+    "gulp-csscomb": "latest",
+    "gulp-csso": "latest",
+    "gulp-less": "latest",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-minify": "0.0.15",
+    "gulp-rename": "latest",
+    "gulp-uglify": "^2.0.1",
+    "main-bower-files": "^2.13.1",
+    "gulp-filter": "~2.0.1",
+    "gulp-sourcemaps": "~1.3.0",
+    "gulp-livereload": "~3.7.0",
+    "gulp-order": "~1.1.1",
+    "gulp-minify-css": "~0.4.5",
+    "run-sequence": "~1.0.2"
+  }
+}

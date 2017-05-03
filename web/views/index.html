@@ -1,0 +1,8 @@
+<div class="col-xs-12">
+  <h1>Index</h1>
+  <div ng-repeat="recette in recettes | orderBy:'titre'">
+    <div ng-repeat="layout in recette.layout">
+      <div ng-if="layout.item=='titre'"><a href="/acookiestory/#!/recette/{{recette.slug}}">{{layout.contenu}}</a></div>
+    </div>
+  </div>
+</div>
