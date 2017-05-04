@@ -83,8 +83,8 @@ else{
     })
   }
 
-  $scope.addCommentaire = function (pseudo, contenu){
-    var commentaire = {pseudo:pseudo, contenu:contenu, recetteId:$scope.recette.id}
+  $scope.addCommentaire = function (pseudo, mail, website, contenu){
+    var commentaire = {pseudo:pseudo, contenu:contenu, mail:mail, website:website, recetteId:$scope.recette.id}
     RecetteService.saveCommentaire(commentaire).then(function(){
       $state.reload();
     });

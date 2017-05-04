@@ -32,6 +32,27 @@ class Commentaires
     /**
      * @var string
      *
+     * @ORM\Column(name="mail", type="string", length=255, nullable=false)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="website", type="string", length=255)
+     */
+    private $website;
+
+    /**
+     * @var date
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date_post;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="commentaire", type="text", nullable=false)
      */
     private $commentaire;
@@ -76,6 +97,78 @@ class Commentaires
     public function getPseudo()
     {
         return $this->pseudo;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Commentaires
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set website
+     *
+     * @param string $website
+     *
+     * @return Commentaires
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+
+        return $this;
+    }
+
+    /**
+     * Get website
+     *
+     * @return string
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * Set date
+     *
+     * @param date $date_post
+     *
+     * @return Commentaires
+     */
+    public function setDatePost($date_post)
+    {
+        $this->date_post = $date_post;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return date
+     */
+    public function getDatePost()
+    {
+        return $this->date_post;
     }
 
     /**

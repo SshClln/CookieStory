@@ -173,6 +173,8 @@ class RecetteController extends Controller
       $com = new Commentaires();
       $com->setPseudo($jsonCommentaire['pseudo']);
       $com->setCommentaire($jsonCommentaire['contenu']);
+      $com->setMail($jsonCommentaire['mail']);
+      $com->setWebsite($jsonCommentaire['website']);
       $com->setRecette($recette);
       $this->em->persist($com);
       $this->em->flush();

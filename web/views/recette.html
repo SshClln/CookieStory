@@ -8,24 +8,35 @@
   <div ng-if="layout.item=='imageH'" class="cs-image-h" image="layout.contenu"></div>
 </div>
 
+<div class="col-xs-12" ng-if="countCommentaire">
+  <div class="cs-commentaires" elements="recette.commentaires"></div>
+</div>
+
 <div class="col-xs-12">
-  <form name="form" ng-submit="addCommentaire(pseudo, contenu)" >
+  <form name="form" ng-submit="addCommentaire(pseudo, mail, website, contenu)" >
     <div class="form-group">
       <label>
-        Pseudo :
+        Nom* :
         <input class="form-control" type="text" name="pseudo" ng-model="pseudo"></input>
       </label>
+      <br>
       <label>
-        Commentaire :
-        <input class="form-control" type="text" name="commentaire" ng-model="contenu"></input>
+        Mail* :
+        <input class="form-control" type="text" name="mail" ng-model="mail"></input>
+      </label>
+      <br>
+      <label>
+        Website :
+        <input class="form-control" type="text" name="website" ng-model="website"></input>
+      </label>
+      <br>
+      <label>
+        Commentaire* :
+        <textarea class="form-control" type="text" name="commentaire" ng-model="contenu"></textarea>
       </label>
     </div>
     <button type="submit" class="btn btn-default">Envoyer</button>
   </form>
-</div>
-
-<div class="col-xs-12" ng-if="countCommentaire">
-  <div class="cs-commentaires" elements="recette.commentaires"></div>
 </div>
 
 <div class="col-xs-12 mb50"></div>
