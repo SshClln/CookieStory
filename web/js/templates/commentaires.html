@@ -1,7 +1,7 @@
 <div class='col-xs-12'>
   <h2>Commentaires</h2>
-  <div class='col-xs-12' ng-repeat = "element in elements">
-    <div>{{element.pseudo}}</div>
+  <div class='col-xs-12' ng-repeat = "element in elements | reverse | limitTo:10">
+    <div>{{element.pseudo}}<span class="pull-right">{{element.website}}</span></div>
     <div>{{element.commentaire}}</div>
   </div>
 </div>

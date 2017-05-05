@@ -108,6 +108,9 @@ class RecetteController extends Controller
       $commentaireJson = [];
       $commentaireJson['id'] = $commentaire->getId();
       $commentaireJson['pseudo'] = $commentaire->getPseudo();
+      $commentaireJson['mail'] = $commentaire->getMail();
+      $commentaireJson['website'] = $commentaire->getWebsite();
+      // $commentaireJson['date_post'] = $commentaire->getDatePost();
       $commentaireJson['commentaire'] = $commentaire->getCommentaire();
       $json['commentaires'][] = $commentaireJson;
     }
@@ -174,6 +177,7 @@ class RecetteController extends Controller
       $com->setPseudo($jsonCommentaire['pseudo']);
       $com->setCommentaire($jsonCommentaire['contenu']);
       $com->setMail($jsonCommentaire['mail']);
+      console.log($jsonCommentaire['website']);
       $com->setWebsite($jsonCommentaire['website']);
       $com->setRecette($recette);
       $this->em->persist($com);

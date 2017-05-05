@@ -43,12 +43,12 @@ class Commentaires
      */
     private $website;
 
-    /**
-     * @var date
-     *
-     * @ORM\Column(name="date", type="date")
-     */
-    private $date_post;
+    // /**
+    //  * @var date
+    //  *
+    //  * @ORM\Column(name="date", type="date")
+    //  */
+    // private $date_post;
 
     /**
      * @var string
@@ -147,29 +147,29 @@ class Commentaires
         return $this->website;
     }
 
-    /**
-     * Set date
-     *
-     * @param date $date_post
-     *
-     * @return Commentaires
-     */
-    public function setDatePost($date_post)
-    {
-        $this->date_post = $date_post;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return date
-     */
-    public function getDatePost()
-    {
-        return $this->date_post;
-    }
+    // /**
+    //  * Set date
+    //  *
+    //  * @param date $date_post
+    //  *
+    //  * @return Commentaires
+    //  */
+    // public function setDatePost($date_post)
+    // {
+    //     $this->date_post = $date_post;
+    //
+    //     return $this;
+    // }
+    //
+    // /**
+    //  * Get date
+    //  *
+    //  * @return date
+    //  */
+    // public function getDatePost()
+    // {
+    //     return $this->date_post;
+    // }
 
     /**
      * Set commentaire
