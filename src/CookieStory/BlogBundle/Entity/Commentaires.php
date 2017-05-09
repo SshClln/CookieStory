@@ -64,6 +64,10 @@ class Commentaires
      */
     private $recette;
 
+    // public function __construct()
+    // {
+    //   $this->date_post = new DateTime();
+    // }
 
     /**
      * Get id
@@ -147,29 +151,29 @@ class Commentaires
         return $this->website;
     }
 
-    // /**
-    //  * Set date
-    //  *
-    //  * @param date $date_post
-    //  *
-    //  * @return Commentaires
-    //  */
-    // public function setDatePost($date_post)
-    // {
-    //     $this->date_post = $date_post;
-    //
-    //     return $this;
-    // }
-    //
-    // /**
-    //  * Get date
-    //  *
-    //  * @return date
-    //  */
-    // public function getDatePost()
-    // {
-    //     return $this->date_post;
-    // }
+    /**
+     * Set date
+     *
+     * @param date $date_post
+     *
+     * @return Commentaires
+     */
+    public function setDatePost($date_post)
+    {
+        $this->date_post = $date_post;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return date
+     */
+    public function getDatePost()
+    {
+        return $this->date_post;
+    }
 
     /**
      * Set commentaire

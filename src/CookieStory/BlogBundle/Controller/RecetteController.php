@@ -177,7 +177,6 @@ class RecetteController extends Controller
       $com->setPseudo($jsonCommentaire['pseudo']);
       $com->setCommentaire($jsonCommentaire['contenu']);
       $com->setMail($jsonCommentaire['mail']);
-      console.log($jsonCommentaire['website']);
       $com->setWebsite($jsonCommentaire['website']);
       $com->setRecette($recette);
       $this->em->persist($com);
@@ -190,6 +189,17 @@ class RecetteController extends Controller
       $jsonTag = json_decode($request->getContent(),true)['nom'];
       $tag = new Tags();
       $tag->setNom($jsonTag);
+      $this->em->persist($tag);
+      $this->em->flush();
+
+      return new JsonResponse(["status" => "ok"]);
+    }
+
+    public function addTagToRecette(Request $request){
+      $jsonTag = json_decode($request->getContent());
+      $tag = new Tags();
+      $tag->setNom($jsonTag['nom']);
+      $tag->addRecette($jsonTag['recette']);
       $this->em->persist($tag);
       $this->em->flush();
 

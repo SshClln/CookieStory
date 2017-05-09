@@ -33,3 +33,7 @@ cookie_story_blog_savecommentaire:
 cookie_story_blog_addtag:
     path: /saveTag
     defaults: { _controller: cookie_story_blog.recette_controller:addTag }
+
+cookie_story_blog_addtagtorecette:
+    path: /saveTagToRecette
+    defaults: { _controller: cookie_story_blog.recette_controller:addTagToRecette }

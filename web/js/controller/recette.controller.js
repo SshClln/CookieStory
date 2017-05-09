@@ -107,6 +107,10 @@ else{
     });
   }
 
+  $scope.addTagToRecette = function (nom) {
+    RecetteService.addTagToRecette(nom, $scope.recette.id);
+  }
+
   $scope.uploadPic = function(file) {
     file.upload = Upload.upload({
       url: 'upload',
