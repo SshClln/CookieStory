@@ -13,17 +13,19 @@
 </div>
 
 <div class="col-xs-12">
-  <form name="form" ng-submit="addCommentaire(pseudo, mail, website, contenu)" >
+  <form name="form" ng-submit="addCommentaire(form)" novalidate>
     <div class="form-group">
       <label>
         Nom* :
-        <input class="form-control" type="text" name="pseudo" ng-model="pseudo"></input>
+        <input class="form-control" type="text" name="pseudo" ng-model="pseudo" required></input>
       </label>
+      <p ng-show="form.$submitted && form.pseudo.$error.required">Ce champ est obligatoire.</p>
       <br>
       <label>
         Mail* :
-        <input class="form-control" type="text" name="mail" ng-model="mail"></input>
+        <input class="form-control" type="text" name="mail" ng-model="mail" required></input>
       </label>
+      <p ng-show="form.$submitted && form.mail.$error.required">Ce champ est obligatoire.</p>
       <br>
       <label>
         Website :
@@ -32,8 +34,9 @@
       <br>
       <label>
         Commentaire* :
-        <textarea class="form-control" type="text" name="commentaire" ng-model="contenu"></textarea>
+        <textarea class="form-control" type="text" name="commentaire" ng-model="contenu" required></textarea>
       </label>
+      <p ng-show="form.$submitted && form.commentaire.$error.required">Ce champ est obligatoire.</p>
     </div>
     <button type="submit" class="btn btn-default">Envoyer</button>
   </form>

@@ -105,18 +105,17 @@
 </div>
 
 <div class="collapse indent" id="nveauTag-collapse">
-  <div ng-repeat="tag in recette.tags | orderBy:'nom'">
-    {{tag.nom}}
-    <!-- <a class="glyphicon glyphicon-trash" ng-click="deleteTag(tag)"></a> -->
-  </div>
   <form name="form" ng-submit="addTagToRecette(contenuText)" >
-    <div class="form-group">
-      <label>
-        Saisir le nom du tag :
-        <input class="form-control" type="text" name="contenu" ng-model="contenuText"></input>
-      </label>
-    </div>
-    <button type="submit" class="btn btn-default">Ajouter le tag</button>
+    <ul class="col-md-6">
+      <li ng-repeat="tag in recette.tags | orderBy:'nom'">
+        {{tag.nom}}
+      </li>
+    </ul>
+    <ul class="col-md-6">
+      <li ng-repeat="tag in tags | orderBy:'nom' | filter:isNotSelectedTag">
+        {{tag.nom}}
+      </li>
+    </ul>
   </form>
 </div>
 

@@ -39,16 +39,16 @@ class Commentaires
     /**
      * @var string
      *
-     * @ORM\Column(name="website", type="string", length=255)
+     * @ORM\Column(name="website", type="string", length=255, nullable=true)
      */
     private $website;
 
-    // /**
-    //  * @var date
-    //  *
-    //  * @ORM\Column(name="date", type="date")
-    //  */
-    // private $date_post;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_post", type="datetime", nullable=true)
+     */
+    private $datePost;
 
     /**
      * @var string
@@ -64,10 +64,11 @@ class Commentaires
      */
     private $recette;
 
-    // public function __construct()
-    // {
-    //   $this->date_post = new DateTime();
-    // }
+    public function __construct()
+    {
+        $this->datePost = new \DateTime("now");
+    }
+
 
     /**
      * Get id
@@ -152,33 +153,25 @@ class Commentaires
     }
 
     /**
-     * Set date
-     *
-     * @param date $date_post
-     *
-     * @return Commentaires
-     */
-    public function setDatePost($date_post)
-    {
-        $this->date_post = $date_post;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return date
+     * @return \DateTime
      */
     public function getDatePost()
     {
-        return $this->date_post;
+        return $this->datePost;
+    }
+
+    /**
+     * @param \DateTime $datePost
+     */
+    public function setDatePost($datePost)
+    {
+        $this->datePost = $datePost;
     }
 
     /**
      * Set commentaire
      *
-     * @param text $commentaire
+     * @param string $commentaire
      *
      * @return Commentaires
      */
@@ -192,22 +185,21 @@ class Commentaires
     /**
      * Get commentaire
      *
-     * @return text
+     * @return string
      */
     public function getCommentaire()
     {
         return $this->commentaire;
     }
-
-
+    
     /**
      * Set recette
      *
-     * @param \CookieStory\BlogBundle\Entity\Recette $recette
+     * @param Recette $recette
      *
      * @return Commentaires
      */
-    public function setRecette(\CookieStory\BlogBundle\Entity\Recette $recette)
+    public function setRecette(Recette $recette)
     {
         $this->recette = $recette;
 

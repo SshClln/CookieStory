@@ -32,7 +32,12 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
                 }, function pendantQueLaRequeteEstTraitée() {
 
                 })
-              }
+              },
+              Tags: function (RecetteService) {
+                return RecetteService.listeTags().then(function (result) {
+                  return result.data;
+                });
+              },
             }
         })
         .state('newRecette', {
@@ -42,7 +47,12 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
             resolve: {
               Recette: function () {
                 return null;
-              }
+              },
+              Tags: function (RecetteService) {
+                return RecetteService.listeTags().then(function (result) {
+                  return result.data;
+                });
+              },
             }
         })
         .state('modifierRecette', {
@@ -58,7 +68,12 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
                 }, function pendantQueLaRequeteEstTraitée() {
 
                 })
-              }
+              },
+              Tags: function (RecetteService) {
+                return RecetteService.listeTags().then(function (result) {
+                  return result.data;
+                });
+              },
             }
         })
         .state('indexRecette', {

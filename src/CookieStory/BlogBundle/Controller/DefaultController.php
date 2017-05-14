@@ -19,7 +19,8 @@ class DefaultController extends Controller
        $target_path = dirname(__DIR__, 4) . DIRECTORY_SEPARATOR ."web" . DIRECTORY_SEPARATOR ."public" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR;
        $destination = $target_path . $filename;
        $result = move_uploaded_file($_FILES['file']['tmp_name'] , $destination);
-       return new JsonResponse(['success'=>$result, 'path' => 'public/images/' . $filename]);
+        return new JsonResponse(['success'=>$result, 'path' => $target_path]);
+        return new JsonResponse(['success'=>$result, 'path' => 'public/images/' . $filename]);
     }
     return new JsonResponse(['status'=>'ko']);
   }

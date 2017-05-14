@@ -1,8 +1,9 @@
-cookieStoryApp.controller('RecetteCtrl', ['$scope', '$state', 'Upload', 'RecetteService', 'Recette',
-  function ($scope, $state, Upload, RecetteService, Recette)
+cookieStoryApp.controller('RecetteCtrl', ['$scope', '$state', 'Upload', 'RecetteService', 'Recette', 'Tags',
+  function ($scope, $state, Upload, RecetteService, Recette, Tags)
 {
 
   $scope.recette = Recette || {commentaires:[]};
+  $scope.tags = Tags;
   $scope.countCommentaire = $scope.recette.commentaires.length;
 
   var position = 1;
@@ -83,11 +84,13 @@ else{
     })
   }
 
-  $scope.addCommentaire = function (pseudo, mail, website, contenu){
-    var commentaire = {pseudo:pseudo, contenu:contenu, mail:mail, website:website, recetteId:$scope.recette.id}
-    RecetteService.saveCommentaire(commentaire).then(function(){
-      $state.reload();
-    });
+  $scope.addCommentaire = function (form){
+    if (form.$valid) {
+      var commentaire = {pseudo:$scope.pseudo, contenu:$scope.contenu, mail:$scope.mail, website:$scope.website, recetteId:$scope.recette.id}
+      RecetteService.saveCommentaire(commentaire).then(function(){
+        $state.reload();
+      });
+    }
 
   }
 
@@ -128,5 +131,11 @@ else{
         // Math.min is to fix IE which reports 200% sometimes
         file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
       });
+    }
+
+    $scope.isNotSelectedTag = function (tag) {
+      return !$scope.recette.tags.some(function (tagRecette) {
+        return tagRecette.id == tag.id;
+      })
     }
 }])
