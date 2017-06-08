@@ -2,7 +2,7 @@ cookieStoryApp.controller('RecetteCtrl', ['$scope', '$state', 'Upload', 'Recette
   function ($scope, $state, Upload, RecetteService, Recette, Tags)
 {
 
-  $scope.recette = Recette || {commentaires:[]};
+  $scope.recette = Recette || {commentaires:[], tags:[]};
   $scope.tags = Tags;
   $scope.countCommentaire = $scope.recette.commentaires.length;
 
@@ -110,8 +110,18 @@ else{
     });
   }
 
-  $scope.addTagToRecette = function (nom) {
-    RecetteService.addTagToRecette(nom, $scope.recette.id);
+  $scope.addTagToRecette = function (tag) {
+      RecetteService.addTagToRecette(tag.id, $scope.recette.id).then(function (response) {
+          $scope.recette.tags.push(tag);
+      });
+  }
+
+  $scope.removeTagFromRecette = function (tag) {
+      RecetteService.removeTagFromRecette(tag.id, $scope.recette.id).then(function (response) {
+        $scope.recette.tags.sort(function (tagA, tagB) {
+          return tagB.id == tag.id
+        }).shift();
+      });
   }
 
   $scope.uploadPic = function(file) {

@@ -104,22 +104,24 @@
   </div>
 </div>
 
-<div class="collapse indent" id="nveauTag-collapse">
+<div class="collapse indent row" id="nveauTag-collapse">
   <form name="form" ng-submit="addTagToRecette(contenuText)" >
-    <ul class="col-md-6">
+    <ul class="col-xs-3 col-xs-offset-3">
       <li ng-repeat="tag in recette.tags | orderBy:'nom'">
         {{tag.nom}}
+        <a class="glyphicon glyphicon-minus" ng-click="removeTagFromRecette(tag)"></a>
       </li>
     </ul>
-    <ul class="col-md-6">
+    <ul class="col-xs-3">
       <li ng-repeat="tag in tags | orderBy:'nom' | filter:isNotSelectedTag">
         {{tag.nom}}
+        <a class="glyphicon glyphicon-plus" ng-click="addTagToRecette(tag)"></a>
       </li>
     </ul>
   </form>
 </div>
 
-<div ng-repeat="layout in layout | orderBy:'position'">
+<div ng-repeat="layout in layout | orderBy:'position'" class="row">
   <a ng-click="deleteElement($index)">
     <span class="pull-right glyphicon glyphicon-trash"></span>
   </a>

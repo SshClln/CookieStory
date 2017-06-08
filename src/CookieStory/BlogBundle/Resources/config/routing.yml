@@ -37,3 +37,7 @@ cookie_story_blog_addtag:
 cookie_story_blog_addtagtorecette:
     path: /saveTagToRecette
     defaults: { _controller: cookie_story_blog.recette_controller:addTagToRecette }
+
+cookie_story_blog_removetagfromrecette:
+    path: /removeTagFromRecette
+    defaults: { _controller: cookie_story_blog.recette_controller:removeTagFromRecette }

@@ -207,9 +207,7 @@ class Recette
     public function addTag(\CookieStory\BlogBundle\Entity\Tags $tag)
     {
         $this->tags[] = $tag;
-
-        $tag->setRecette($this);
-
+        
         return $this;
     }
 

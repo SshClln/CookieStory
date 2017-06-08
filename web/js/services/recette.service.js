@@ -28,7 +28,11 @@ cookieStoryApp.service('RecetteService', ['$http', function ($http) {
     return $http.post('saveTag',{'nom':nom});
   }
 
-  this.addTagToRecette = function (nom, recette){
-    return $http.post('saveTagToRecette',{'nom':nom, 'recette':recette});
+  this.addTagToRecette = function (tag, recette){
+    return $http.post('saveTagToRecette',{'tag':tag, 'recette':recette});
+  }
+
+  this.removeTagFromRecette = function (tag, recette){
+    return $http.post('removeTagFromRecette',{'tag':tag, 'recette':recette});
   }
 }])

@@ -218,10 +218,22 @@ class RecetteController extends Controller
 
     public function addTagToRecette(Request $request)
     {
-        $jsonTag = json_decode($request->getContent());
-        $tag = new Tags();
-        $tag->setNom($jsonTag['nom']);
-        $tag->addRecette($jsonTag['recette']);
+        $params = json_decode($request->getContent(), true); // ['tag':4, 'recette':11]
+        $recette = $this->recetteDao->get($params['recette']);
+        $tag = $this->tagsDao->get($params['tag']);
+        $tag->addRecette($recette);
+        $this->em->persist($tag);
+        $this->em->flush();
+
+        return new JsonResponse(["status" => "ok"]);
+    }
+
+    public function removeTagFromRecette(Request $request)
+    {
+        $params = json_decode($request->getContent(), true); // ['tag':4, 'recette':11]
+        $recette = $this->recetteDao->get($params['recette']);
+        $tag = $this->tagsDao->get($params['tag']);
+        $tag->removeRecette($recette);
         $this->em->persist($tag);
         $this->em->flush();
 
