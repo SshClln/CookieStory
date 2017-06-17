@@ -17,6 +17,11 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
                   return result.data;
                 });
               },
+              Tags: function (RecetteService) {
+                return RecetteService.listeTags().then(function (result) {
+                  return result.data;
+                });
+              },
             }
         })
         .state('recette', {
@@ -83,6 +88,28 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
             resolve: {
               Recettes: function (RecetteService) {
                 return RecetteService.listeRecette().then(function (result) {
+                  return result.data;
+                });
+              },
+              Tags: function (RecetteService) {
+                return RecetteService.listeTags().then(function (result) {
+                  return result.data;
+                });
+              },
+            }
+        })
+        .state('categories', {
+            url: '/categories',
+            templateUrl: 'views/categories.html',
+            controller: 'ListeRecetteCtrl',
+            resolve: {
+              Recettes: function (RecetteService) {
+                return RecetteService.listeRecette().then(function (result) {
+                  return result.data;
+                });
+              },
+              Tags: function (RecetteService) {
+                return RecetteService.listeTags().then(function (result) {
                   return result.data;
                 });
               },

@@ -83,6 +83,7 @@ class RecetteController extends Controller
                 $json = [];
                 $json['id'] = $tag->getId();
                 $json['nom'] = $tag->getNom();
+                $json['image'] = $tag->getImage();
                 $listeJson[] = $json;
             }
 
@@ -207,10 +208,21 @@ class RecetteController extends Controller
 
     public function addTag(Request $request)
     {
-        $jsonTag = json_decode($request->getContent(), true)['nom'];
+        $jsonTag = json_decode($request->getContent(), true)['tag']; // [nom, image]
         $tag = new Tags();
-        $tag->setNom($jsonTag);
+        $tag->setNom($jsonTag['nom']);
+        $tag->setImage($jsonTag['image']);
         $this->em->persist($tag);
+        $this->em->flush();
+
+        return new JsonResponse(["status" => "ok"]);
+    }
+
+    public function removeTag(Request $request)
+    {
+        $jsonTag = json_decode($request->getContent(), true)['tag']; // ['tag':4]
+        $tag = $this->tagsDao->get($jsonTag);
+        $this->em->remove($tag);
         $this->em->flush();
 
         return new JsonResponse(["status" => "ok"]);

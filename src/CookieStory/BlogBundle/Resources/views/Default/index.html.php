@@ -15,7 +15,7 @@
         <div class="container bandeau" >
           <ul>
             <li><a href="/acookiestory/#!/">Accueil</a></li>
-            <li>Categories</li>
+            <li><a href="/acookiestory/#!/categories">Categories</a></li>
             <li><a href="/acookiestory/#!/index">Index</a></li>
             <li>Materiel</li>
             <li>A propos</li>

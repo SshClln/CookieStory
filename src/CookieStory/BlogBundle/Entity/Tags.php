@@ -36,6 +36,13 @@ class Tags
     private $recettes;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
      * Get id
      *
      * @return int
@@ -92,6 +99,31 @@ class Tags
     {
         return $this->recettes;
     }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Tags
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
     /**
      * Constructor
      */

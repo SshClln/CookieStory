@@ -91,7 +91,6 @@ else{
         $state.reload();
       });
     }
-
   }
 
   $scope.addRecette = function () {
