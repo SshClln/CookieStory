@@ -43,7 +43,7 @@ cookieStoryApp.controller('adminCtrl', ['$scope', '$state', 'RecetteService', 'R
           $scope.picFile=undefined;
         }
         else{
-          console.log("erreur upload");
+          console.log(response);
         }
       }, function (response) {
       }, function (evt) {

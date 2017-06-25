@@ -223,6 +223,11 @@ ul.ingredient {
   padding-left: 5%;
 }
 
+.no-padding > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
 ul.galleriePhoto li {
   float: left;
   width: 16%;
