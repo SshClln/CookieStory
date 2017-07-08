@@ -4,6 +4,8 @@ namespace CookieStory\BlogBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
 
 /**
  * Tags
@@ -43,6 +45,12 @@ class Tags
     private $image;
 
     /**
+   * @Gedmo\Slug(fields={"nom"})
+   * @ORM\Column(length=128, unique=true)
+   */
+   private $slug;
+
+    /**
      * Get id
      *
      * @return int
@@ -74,6 +82,30 @@ class Tags
     public function getNom()
     {
         return $this->nom;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Recette
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**

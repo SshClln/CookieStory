@@ -56,10 +56,40 @@ class RecetteController extends Controller
         return new JsonResponse($this->RecetteToJson($recette));
     }
 
+    public function getTag(Request $request)
+    {
+        $slug = $request->query->get('slug');
+
+        $tag = $this->tagsDao->getOneBySlug($slug);
+
+        return new JsonResponse($tag);
+    }
+
     public function getListeRecette(Request $request)
     {
         try {
             $recettes = $this->recetteDao->liste();
+            $listeJson = [];
+
+            foreach ($recettes as $recette) {
+                $listeJson[] = $this->RecetteToJson($recette);
+            }
+
+            return new JsonResponse($listeJson);
+        } catch (\Exception $ex) {
+            PRINT $ex->getMessage();
+        }
+
+    }
+
+    public function getListeRecetteByTag(Request $request)
+    {
+        try {
+            $slug = $request->query->get('slug');
+
+            $tag = $this->tagsDao->getOneBySlug($slug);
+
+            $recettes = $tag->getRecettes();
             $listeJson = [];
 
             foreach ($recettes as $recette) {
@@ -84,6 +114,7 @@ class RecetteController extends Controller
                 $json['id'] = $tag->getId();
                 $json['nom'] = $tag->getNom();
                 $json['image'] = $tag->getImage();
+                $json['slug'] = $tag->getSlug();
                 $listeJson[] = $json;
             }
 

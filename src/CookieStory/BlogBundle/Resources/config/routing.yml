@@ -2,6 +2,10 @@ cookie_story_blog_homepage:
     path:     /
     defaults: { _controller: CookieStoryBlogBundle:Default:index }
 
+cookie_story_blog_connexion:
+    path:     /admin/connect
+    defaults: { _controller: cookie_story_blog.admin_controller:connexion }
+
 cookie_story_blog_upload:
     path:     /upload
     defaults: { _controller: CookieStoryBlogBundle:Default:upload }
@@ -9,6 +13,14 @@ cookie_story_blog_upload:
 cookie_story_blog_getrecette:
     path: /recette/find
     defaults: { _controller: cookie_story_blog.recette_controller:getRecette }
+
+cookie_story_blog_gettag:
+    path: /tag/find
+    defaults: { _controller: cookie_story_blog.recette_controller:getTag }
+
+cookie_story_blog_getlisterecettebytag:
+    path: /recette/tag
+    defaults: { _controller: cookie_story_blog.recette_controller:getListeRecetteByTag }
 
 cookie_story_blog_getlisterecette:
     path: /recette/liste

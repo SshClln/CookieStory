@@ -24,6 +24,16 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
               },
             }
         })
+        .state('connexion', {
+            url: '/connect',
+            templateUrl: 'views/connexion.html',
+            controller: 'ConnexionCtrl',
+            resolve: {
+              Admin: function (AdminService) {
+                return null;
+              },
+            }
+        })
         .state('recette', {
             url: '/recette/{slug}',
             templateUrl: 'views/recette.html',
@@ -112,6 +122,21 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
                 return RecetteService.listeTags().then(function (result) {
                   return result.data;
                 });
+              },
+            }
+        })
+        .state('categorieListeRecette', {
+            url: '/categorie/{slug}',
+            templateUrl: 'views/categorieListeRecette.html',
+            controller: 'ListeRecetteCtrl',
+            resolve: {
+              Recettes: function (RecetteService, $stateParams) {
+                return RecetteService.listeRecetteByTag($stateParams.slug).then(function (result) {
+                  return result.data;
+                });
+              },
+              Tags: function () {
+                return [];
               },
             }
         })

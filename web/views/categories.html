@@ -1,6 +1,5 @@
-<div class="col-xs-12">
+<div class="col-md-8 col-md-offset-2">
   <div class="col-xs-6" ng-repeat="tag in tags">
-    <p>{{tag.nom}}</p>
-    <p class="cs-image-h" image="tag.image"></p>
+    <a href="/acookiestory/#!/categorie/{{tag.slug}}"><p class="cs-image-h" image="tag.image"></p></a>
   </div>
 </div>

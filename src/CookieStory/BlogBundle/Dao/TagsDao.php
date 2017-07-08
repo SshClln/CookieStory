@@ -23,6 +23,15 @@ class TagsDao
     return $tags;
   }
 
+  public function getOneBySlug($slug)
+  {
+    $tagRepository = $this->em->getRepository('CookieStoryBlogBundle:Tags');
+    
+    $tag = $tagRepository->findOneBySlug($slug);
+
+    return $tag;
+  }
+
   public function getAll($recetteId)
   {
     $tagsRepository = $this->em->getRepository('CookieStoryBlogBundle:Tags');

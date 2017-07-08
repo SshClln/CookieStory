@@ -77,6 +77,21 @@ h3 {
   width: 100%;
 }
 
+.titre-home {
+  font-family: 'CookieAndMilk';
+  font-size: 25pt;
+}
+
+.footer {
+  font-family: 'CookieAndMilk';
+  font-size: 20pt;
+}
+
+.footer-cookie {
+  font-family: 'CookieAndMilk';
+  font-size: 15pt;
+}
+
 div.recette .titre {
   font-size: 60pt;
   font-family: 'CookieAndMilk';
@@ -223,7 +238,7 @@ ul.ingredient {
   padding-left: 5%;
 }
 
-.no-padding > [class*='col-'] {
+.no-padding {
     padding-right:0;
     padding-left:0;
 }

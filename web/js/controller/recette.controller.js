@@ -99,7 +99,7 @@ else{
       recette.id = $scope.recette.id;
     }
     RecetteService.saveRecette(recette).then(function () {
-      $state.go('home');
+      $state.go('pageAdmin');
     });
   }
 

@@ -4,8 +4,16 @@ cookieStoryApp.service('RecetteService', ['$http', function ($http) {
     return $http.get('recette/find?slug='+slug);
   }
 
+  this.getTag = function (slug) {
+    return $http.get('tag/find?slug='+slug);
+  }
+
   this.listeRecette = function () {
     return $http.get('recette/liste');
+  }
+
+  this.listeRecetteByTag = function (tagSlug) {
+    return $http.get('recette/tag?slug='+tagSlug);
   }
 
   this.listeTags = function () {
