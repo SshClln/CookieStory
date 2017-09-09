@@ -1,5 +1,7 @@
 // Define the `cookieStoryApp` module
-var cookieStoryApp = angular.module('cookieStoryApp', ['ui.router', 'ngFileUpload']);
+var cookieStoryApp = angular.module('cookieStoryApp', ['ui.router', 'ngFileUpload', 'ngResource']);
+cookieStoryApp.constant('_', window._);
+
 
 cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
 
@@ -140,8 +142,17 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
               },
             }
         })
-        .state('pageAdmin', {
-            url: '/admin',
+        .state('admin', {
+            url: "/admin",
+            abstract: true,
+            templateUrl: 'views/admin.html',
+            data: {
+                authorizedRights: ['admin.read'],
+                redirect: 'connexion'
+            },
+        })
+        .state('admin.pageAdmin', {
+            url: '/gestion',
             templateUrl: 'views/pageAdmin.html',
             controller: 'adminCtrl',
             resolve: {
@@ -158,6 +169,20 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
             }
         })
 });
+
+cookieStoryApp.run(function ($state, AuthService, $rootScope) {
+    $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
+        if ('data' in next && 'authorizedRights' in next.data) {
+            var authorizedRights = next.data.authorizedRights;
+            if (!AuthService.isAuthorized(authorizedRights)) {
+                event.preventDefault();
+                $state.go(next.data.redirect);
+            }
+        }
+    });
+});
+
+
 
 cookieStoryApp.filter('reverse', function() {
   return function(input) {

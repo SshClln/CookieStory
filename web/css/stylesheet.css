@@ -57,6 +57,11 @@ body {
   text-align: justify;
 }
 
+header {
+    width: 81%;
+    margin: auto;
+}
+
 h1 {
   font-family: 'CookieAndMilk';
   text-align: center;
@@ -80,6 +85,7 @@ h3 {
 .titre-home {
   font-family: 'CookieAndMilk';
   font-size: 25pt;
+  clear: both;
 }
 
 .footer {
@@ -185,7 +191,6 @@ div.cs-commentaires {
 
 .bandeau{
   font-family : 'CookieAndMilk';
-  margin-top:5px;
   text-align: center;
   line-height: 55px;
   width: 100%;

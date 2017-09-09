@@ -16,15 +16,17 @@ $(document).ready(function(){
 
     if (posScroll >= limitScrollTop) {
       $('.bandeau').css({
-        'position' : 'sticky',
+        'position' : 'fixed',
         'top' : '0',
-        'z-index' : '100'
+        'z-index' : '100',
+        'width' : '81%'
       });
     }
     else {
       $('.bandeau').css({
         'position' : 'initial',
-        'z-index' : '0'
+        'z-index' : '0',
+        'width' : '100%'
       });
     }
   });

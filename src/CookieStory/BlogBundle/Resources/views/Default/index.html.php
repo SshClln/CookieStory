@@ -7,30 +7,27 @@
     <script type="text/javascript" src="js/build/main.js"></script>
   </head>
   <body>
-    <div class="row">
-
-      <div class="col-md-8 col-md-offset-2">
-        <div style ="text-align:center; margin-top:5px;">
-          <img class="logo_img" src="images/ACookieStoryLogo.png"></img>
-        </div>
-        <div class="container bandeau" >
-          <ul>
-            <li><a href="/acookiestory/#!/">Accueil</a></li>
-            <li><a href="/acookiestory/#!/categories">Categories</a></li>
-            <li><a href="/acookiestory/#!/index">Index</a></li>
-            <li>Blogroll</li>
-            <li>A propos</li>
-            <li>Contact</li>
-          </ul>
-        </div>
+    <header>
+      <div style ="text-align:center; margin-top:5px;">
+        <img class="logo_img" src="images/ACookieStoryLogo.png"></img>
       </div>
-    </div>
-    <div class="recette row" ng-app="cookieStoryApp">
+      <div class="container bandeau" >
+        <ul>
+          <li><a href="/acookiestory/#!/">Accueil</a></li>
+          <li><a href="/acookiestory/#!/categories">Categories</a></li>
+          <li><a href="/acookiestory/#!/index">Index</a></li>
+          <li>Blogroll</li>
+          <li>A propos</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+    </header>
+    <div class="recette" ng-app="cookieStoryApp">
       <div ui-view>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12 titre-home">
+    <div class="">
+      <div class="titre-home">
         <a href="https://www.instagram.com/acookiestory/"><p class="footer text-center">Retrouvez-moi sur instagram !</p></a>
         <!-- SnapWidget -->
         <script src="https://snapwidget.com/js/snapwidget.js"></script>

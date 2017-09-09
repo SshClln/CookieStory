@@ -37,7 +37,7 @@ class AdminController extends Controller
         if($adminBase->getPassword() == $mdpReq){
           session_start();
           $_SESSION['identifiant'] = $identifiant;
-          return new JsonResponse(["status" => "ok"]);
+          return new JsonResponse($this->userToJson($adminBase));
         }
         else{
           return new JsonResponse(["status" => "ko"]);
@@ -45,6 +45,14 @@ class AdminController extends Controller
       } catch (Exception $e) {
         return new JsonResponse(["error" => $e->getMessage()]);
       }
+    }
+
+    public function userToJson($user) {
+      $json = [];
+      $json['id'] = $user->getId();
+      $json['identifiant'] = $user->getIdentifiant();
+
+      return $json;
     }
 
     public function getAdmin(Request $request)
