@@ -6,16 +6,17 @@ cookieStoryApp.controller('RecetteCtrl', ['$scope', '$state', 'Upload', 'Recette
   $scope.tags = Tags;
   $scope.countCommentaire = $scope.recette.commentaires.length;
 
-  var position = 1;
 
   $scope.contenuText='';
   $scope.contenuList = [];
 
 if (Recette){
   $scope.layout=Recette.layout;
+  var position = Math.max.apply(null,Recette.layout.map(function(o){return o.position;}))+1;
 }
 else{
   $scope.layout = [];
+  var position = 1;
 }
 
   $scope.addElement = function (element, contenu, pos) {
@@ -39,14 +40,15 @@ else{
     $scope.contenuText='';
     $scope.contenuList = [];
     $scope.positionEdition = undefined;
+    trierLayoutParPosition();
   }
 
   $scope.deleteElement = function (position) {
     $scope.layout.splice(position, 1);
+    trierLayoutParPosition();
   }
 
   $scope.modifierElement = function (element, index) {
-    trierLayoutParPosition();
     if (element.item == 'titre' || element.item =='story') {
       $scope.contenuText = element.contenu;
       $scope.layout.splice(index, 1);
@@ -57,6 +59,7 @@ else{
       $scope.layout.splice(index, 1);
       $scope.positionEdition = element.position;
     }
+    trierLayoutParPosition();
   }
 
   $scope.monterElement = function (position) {
@@ -99,7 +102,7 @@ else{
       recette.id = $scope.recette.id;
     }
     RecetteService.saveRecette(recette).then(function () {
-      $state.go('pageAdmin');
+      $state.go('admin.pageAdmin');
     });
   }
 

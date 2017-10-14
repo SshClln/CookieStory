@@ -1,8 +1,13 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="row">
   <h1>Index</h1>
-  <div ng-repeat="recette in recettes | orderBy:'titre'">
-    <div ng-repeat="layout in recette.layout">
-      <div ng-if="layout.item=='titre'"><a href="/acookiestory/#!/recette/{{recette.slug}}">{{layout.contenu}}</a></div>
+  <div ng-repeat="lettre in alphabet">
+    <h2>{{lettre}}</h2>
+    <div ng-repeat="recette in recettes | orderBy:'titre' | lettre:lettre">
+      <div ng-repeat="layout in recette.layout">
+        <div ng-if="layout.item=='titre'">
+           <a href="/acookiestory/#!/recette/{{recette.slug}}">{{layout.contenu}}</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -5,11 +5,11 @@ cookieStoryApp.controller('adminCtrl', ['$scope', '$state', 'RecetteService', 'R
   $scope.tags = Tags;
 
   $scope.newRecette = function () {
-    $state.go('newRecette');
+    $state.go('admin.newRecette');
   }
 
   $scope.modifierRecette = function (recette) {
-    $state.go('modifierRecette', {'slug': recette.slug});
+    $state.go('admin.modifierRecette', {'slug': recette.slug});
   }
 
   $scope.deleteRecette = function (recette) {

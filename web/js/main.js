@@ -12,7 +12,6 @@ $(document).ready(function(){
 
   $(window).scroll(function(){
   	var posScroll = $(document).scrollTop();
-    console.log('posScroll : ' + posScroll, 'limitScrollTop : ' + limitScrollTop);
 
     if (posScroll >= limitScrollTop) {
       $('.bandeau').css({

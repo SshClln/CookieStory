@@ -48,7 +48,10 @@
 }
 
 .logo_img {
-  max-height: 300px;
+  max-height: 200px;
+  width:80%;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 body {
@@ -84,8 +87,15 @@ h3 {
 
 .titre-home {
   font-family: 'CookieAndMilk';
-  font-size: 25pt;
+  font-size: 20pt;
   clear: both;
+}
+
+.footer::before{
+  content:'';
+  min-height:30px;
+  display:block;
+  clear:both;
 }
 
 .footer {
@@ -195,9 +205,13 @@ div.cs-commentaires {
   line-height: 55px;
   width: 100%;
   height: 50px;
-  background: linear-gradient(black 2px, white 2px, white 48px, black 48px);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  background-color: white;
+
+  /*background: linear-gradient(black 2px, white 2px, white 48px, black 48px);
   background: -webkit-linear-gradient(black 2px, white 2px, white 48px, black 48px);
-  background: -moz-linear-gradient(black 3px, white 3px, white 49px, black 49px);
+  background: -moz-linear-gradient(black 3px, white 3px, white 49px, black 49px);*/
 }
 
 .bandeau ul {

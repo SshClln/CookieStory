@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="row">
 <div id="myGroup">
 <div class="text-center">
   <a class="btn btn-default" data-toggle="collapse" data-target="#titre-collapse" data-parent="#myGroup">Titre</a>
@@ -42,11 +42,11 @@
 
 <div class="collapse indent" id="story-collapse">
   <div class="panel-body text-center">
-    <form name="form" ng-submit="addElement('story', contenuText)" >
+    <form name="form" ng-submit="addElement('story', contenuText, positionEdition)" >
       <div class="form-group">
         <label>
           Saisir la story :
-          <input class="form-control" type="text" name="contenu" ng-model="contenuText"></input>
+          <textarea class="form-control" type="text" name="contenu" ng-model="contenuText"></textarea>
         </label>
       </div>
       <button type="submit" class="btn btn-default">Ajouter l'élément</button>
@@ -57,7 +57,7 @@
 <div class="collapse indent" id="ingredients-collapse">
   <div class="panel-body text-center">
     <div class="btn-group" role="group">
-      <form name="form" ng-submit="addElement('ingredients', contenuList)" >
+      <form name="form" ng-submit="addElement('ingredients', contenuList, positionEdition)" >
         <div ng-repeat="item in contenuList">
           <div class="form-group">
             <label>
@@ -74,7 +74,7 @@
           <a ng-href="" class="btn btn-default" ng-click="item.ingredients.push({descr:''})">Ajouter un ingrédient</a>
         </div>
         <a ng-href="" class="btn btn-default" ng-click="contenuList.push({titre:undefined, ingredients: []})">Ajouter une liste d'ingrédients</a>
-        <button ng-show="contenuList!=''" type="submit" class="btn btn-default">Ajouter l'élément</button>
+        <button type="submit" class="btn btn-default">Ajouter l'élément</button>
       </form>
     </div>
   </div>
@@ -83,7 +83,7 @@
 <div class="collapse indent" id="recette-collapse">
   <div class="panel-body text-center">
     <div class="btn-group" role="group">
-      <form name="form" ng-submit="addElement('recette', contenuList)" >
+      <form name="form" ng-submit="addElement('recette', contenuList, positionEdition)" >
         <div ng-repeat="item in contenuList">
           <div class="form-group">
             <label>
@@ -94,12 +94,12 @@
           <div class="form-group">
             <label>
               Saisir le contenu de la recette :
-              <input class="form-control" type="text" name="contenu" ng-model="item.recette"></input>
+              <textarea class="form-control" type="text" name="contenu" ng-model="item.recette"></textarea>
             </label>
           </div>
         </div>
         <a ng-href="" class="btn btn-default" ng-click="contenuList.push({titre:undefined, recette: ''})">Ajouter une recette</a>
-        <button ng-show="contenuList!=''" type="submit" class="btn btn-default">Ajouter l'élément</button>
+        <button type="submit" class="btn btn-default">Ajouter l'élément</button>
       </form>
     </div>
   </div>

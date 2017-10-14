@@ -57,42 +57,6 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
               },
             }
         })
-        .state('newRecette', {
-            url: '/recette',
-            templateUrl: 'views/add.recette.html',
-            controller: 'RecetteCtrl',
-            resolve: {
-              Recette: function () {
-                return null;
-              },
-              Tags: function (RecetteService) {
-                return RecetteService.listeTags().then(function (result) {
-                  return result.data;
-                });
-              },
-            }
-        })
-        .state('modifierRecette', {
-            url: '/modifRecette/{slug}',
-            templateUrl: 'views/add.recette.html',
-            controller: 'RecetteCtrl',
-            resolve: {
-              Recette: function ($stateParams, RecetteService) {
-                return RecetteService.getRecette($stateParams.slug).then(function siToutEstBon (result) {
-                  return result.data;
-                }, function siQqchPlante() {
-
-                }, function pendantQueLaRequeteEstTraitée() {
-
-                })
-              },
-              Tags: function (RecetteService) {
-                return RecetteService.listeTags().then(function (result) {
-                  return result.data;
-                });
-              },
-            }
-        })
         .state('indexRecette', {
             url: '/index',
             templateUrl: 'views/index.html',
@@ -168,6 +132,42 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
               },
             }
         })
+        .state('admin.newRecette', {
+            url: '/recette',
+            templateUrl: 'views/add.recette.html',
+            controller: 'RecetteCtrl',
+            resolve: {
+              Recette: function () {
+                return null;
+              },
+              Tags: function (RecetteService) {
+                return RecetteService.listeTags().then(function (result) {
+                  return result.data;
+                });
+              },
+            }
+        })
+        .state('admin.modifierRecette', {
+            url: '/modifRecette/{slug}',
+            templateUrl: 'views/add.recette.html',
+            controller: 'RecetteCtrl',
+            resolve: {
+              Recette: function ($stateParams, RecetteService) {
+                return RecetteService.getRecette($stateParams.slug).then(function siToutEstBon (result) {
+                  return result.data;
+                }, function siQqchPlante() {
+
+                }, function pendantQueLaRequeteEstTraitée() {
+
+                })
+              },
+              Tags: function (RecetteService) {
+                return RecetteService.listeTags().then(function (result) {
+                  return result.data;
+                });
+              },
+            }
+        })
 });
 
 cookieStoryApp.run(function ($state, AuthService, $rootScope) {
@@ -180,6 +180,9 @@ cookieStoryApp.run(function ($state, AuthService, $rootScope) {
             }
         }
     });
+    $rootScope.$on('$stateChangeSuccess', function() {
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
 });
 
 
@@ -187,5 +190,17 @@ cookieStoryApp.run(function ($state, AuthService, $rootScope) {
 cookieStoryApp.filter('reverse', function() {
   return function(input) {
     return input.slice().reverse();
+  };
+});
+
+cookieStoryApp.filter('lettre', function() {
+  return function(input, lettre) {
+    var myRegex = new RegExp("^" + lettre, "i");
+    var filtre = function (element) {
+      if(myRegex.test(element.titre)){
+        return element;
+      }
+    }
+    return input.filter(filtre);
   };
 });

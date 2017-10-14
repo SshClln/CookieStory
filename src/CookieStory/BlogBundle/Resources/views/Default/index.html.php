@@ -22,10 +22,11 @@
         </ul>
       </div>
     </header>
-    <div class="recette" ng-app="cookieStoryApp">
-      <div ui-view>
+    <div class="recette row" ng-app="cookieStoryApp">
+      <div ui-view class="col-md-8 col-md-offset-2">
       </div>
     </div>
+    <hr />
     <div class="">
       <div class="titre-home">
         <a href="https://www.instagram.com/acookiestory/"><p class="footer text-center">Retrouvez-moi sur instagram !</p></a>
