@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="row">
   <div ng-repeat="layout in recette.layout | orderBy:'position'">
     <div ng-if="layout.item=='titre'" class="cs-titre" titre="layout.contenu"></div>
     <div ng-if="layout.item=='story'" class="cs-story" story="layout.contenu"></div>
@@ -43,5 +43,5 @@
   </div>
 
   <div class="col-xs-12 mb50"></div>
-  
+
 </div>

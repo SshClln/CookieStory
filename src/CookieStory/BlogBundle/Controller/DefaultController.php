@@ -23,4 +23,12 @@ class DefaultController extends Controller
     }
     return new JsonResponse(['status'=>'ko']);
   }
+
+  public function feedAction() {
+
+    $client = new \GuzzleHttp\Client();
+    $res = $client->get("https://api.instagram.com/v1/users/self/media/recent/?access_token=".getenv("INSTAGRAM_KEY")."&count=8");
+
+    return new JsonResponse(json_decode($res->getBody()));
+  }
 }

@@ -18,15 +18,15 @@ $(document).ready(function(){
         'position' : 'fixed',
         'top' : '0',
         'z-index' : '100',
-        'width' : '81%'
-      });
+        'width' : '85%'
+      }).siblings().css({'margin-top':'50px'});
     }
     else {
       $('.bandeau').css({
         'position' : 'initial',
         'z-index' : '0',
         'width' : '100%'
-      });
+      }).siblings().css({'margin-top':'0px'});;
     }
   });
 });

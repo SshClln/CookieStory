@@ -2,6 +2,10 @@ cookie_story_blog_homepage:
     path:     /
     defaults: { _controller: CookieStoryBlogBundle:Default:index }
 
+cookie_story_blog_feed:
+    path:     /feed
+    defaults: { _controller: CookieStoryBlogBundle:Default:feed }
+
 cookie_story_blog_connexion:
     path:     /admin/connect
     defaults: { _controller: cookie_story_blog.admin_controller:connexion }

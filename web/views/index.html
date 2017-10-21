@@ -1,11 +1,13 @@
 <div class="row">
   <h1>Index</h1>
-  <div ng-repeat="lettre in alphabet">
-    <h2>{{lettre}}</h2>
-    <div ng-repeat="recette in recettes | orderBy:'titre' | lettre:lettre">
-      <div ng-repeat="layout in recette.layout">
-        <div ng-if="layout.item=='titre'">
-           <a href="/acookiestory/#!/recette/{{recette.slug}}">{{layout.contenu}}</a>
+  <div class="index">
+    <div ng-repeat="lettre in alphabet" >
+      <div ng-repeat="recette in recettes | orderBy:'titre' | lettre:lettre">
+        <h2 ng-if="$first">{{lettre}}</h2>
+        <div ng-repeat="layout in recette.layout">
+          <div ng-if="layout.item=='titre'">
+            <a href="/acookiestory/#!/recette/{{recette.slug}}">{{layout.contenu}}</a>
+          </div>
         </div>
       </div>
     </div>
