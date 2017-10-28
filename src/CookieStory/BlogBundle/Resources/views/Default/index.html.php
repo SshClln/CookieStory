@@ -9,7 +9,9 @@
   <body>
     <header>
       <div style ="text-align:center; margin-top:5px;">
-        <img class="logo_img" src="images/ACookieStoryLogo.png"></img>
+        <a href="/acookiestory/#!/">
+          <img class="logo_img" src="images/ACS_logo.png"></img>
+        </a>
       </div>
       <div class="bandeau" >
         <ul>
@@ -29,17 +31,17 @@
       </div>
       <div class="row" ng-controller="feedCtrl">
         <hr />
-        <div class="titre-home">
-          <a href="https://www.instagram.com/acookiestory/"><p class="footer text-center">Retrouvez-moi sur instagram !</p></a>
+        <div class="footer text-center">
+          <a class="link_home" href="https://www.instagram.com/acookiestory/">Retrouvez-moi sur instagram !</a>
           <!-- SnapWidget -->
           <div class="row feed">
             <span ng-repeat="image in images">
-              <a href="{{image.link}}">
+              <a class="link_home" href="{{image.link}}">
                 <img ng-src="{{image.src}}" alt="">
               </a>
             </span>
           </div>
-          <p class="footer-cookie text-center">A Cookie Story</p>
+          <p class="footer-cookie">A Cookie Story</p>
         </div>
       </div>
     </div>
