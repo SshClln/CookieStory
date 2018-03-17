@@ -47,6 +47,20 @@
    font-style: italic;
 }
 
+@font-face {
+   font-family: 'ACookieStoryFont';
+   src: url('../../police/ACookieStoryFont.otf') format('opentype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'ACookieStoryFont';
+   src: url('../../police/ACSFont_Bold.otf') format('opentype');
+   font-weight: bold;
+   font-style: normal;
+}
+
 img.logo_img {
   max-height: 200px;
   width:45%;
@@ -56,8 +70,13 @@ img.logo_img {
 
 body {
   font-family: 'Bookman Old Style';
+  color:#595959;
   font-size: 12pt;
   text-align: justify;
+}
+
+html, body {
+    overflow: auto;
 }
 
 header {
@@ -66,29 +85,29 @@ header {
 }
 
 h1 {
-  font-family: 'CookieAndMilk';
+  font-family: 'ACookieStoryFont';
   text-align: center;
-  font-size: 50pt;
+  font-size: 40pt;
   width: 100%;
 }
 
 h2 {
-  font-family: 'CookieAndMilk';
-  font-size: 25pt;
+  font-family: 'ACookieStoryFont';
+  font-size: 20pt;
   line-height: 32pt;
   width: 100%;
 }
 
 h3 {
-  font-family: 'CookieAndMilk';
+  font-family: 'ACookieStoryFont';
   font-style: italic;
-  font-size: 20pt;
+  font-size: 16pt;
   width: 100%;
 }
 
 .titre-home {
-  font-family: 'CookieAndMilk';
-  font-size: 21pt;
+  font-family: 'ACookieStoryFont';
+  font-size: 18pt;
   clear: both;
 }
 
@@ -105,26 +124,30 @@ a.link_home:hover {
 }
 
 .footer {
-  font-family: 'CookieAndMilk';
-  font-size: 17pt;
+  background-color: #f8f8f8;
+  font-family: 'ACookieStoryFont';
+  font-size: 14pt;
+  padding: 10px 0;
+  margin-top: 20px;
 }
 
 .footer-cookie {
-  font-family: 'CookieAndMilk';
-  font-size: 15pt;
+  font-family: 'ACookieStoryFont';
+  font-size: 12pt;
+  margin: 0;
 }
 
 div.recette .titre {
-  font-size: 60pt;
-  font-family: 'CookieAndMilk';
+  font-size: 54pt;
+  font-family: 'ACookieStoryFont';
   margin-top: 0.5em;
   /*text-shadow: 1px 1px rgb(112, 132, 112), 0px -1px rgb(112, 132, 112), -1px 0px rgb(112, 132, 112), 1px 0px rgb(112, 132, 112), 0px 1px rgb(112, 132, 112), -1px -1px rgb(112, 132, 112), 1px -1px rgb(112, 132, 112), -1px 1px rgb(112, 132, 112);
   color: #e561e5;*/
 }
 
 div.recette h3.sousTitre {
-  font-size: 32pt;
-  font-family: 'CookieAndMilk';
+  font-size: 28pt;
+  font-family: 'ACookieStoryFont';
   padding: 1em 0 0.5em;
 }
 
@@ -171,14 +194,41 @@ div.form-group {
   margin-top: 25px;
 }
 
-div.cs-image-h {
+div.cs-image-h img,div.cs-image-v img{
+  display: block;
   margin-top: 25px;
   margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.cs-image-h img {
+  max-width: 85%;
+}
+
+div.cs-image-v img {
+  max-width: 80%;
 }
 
 div.cs-commentaires {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+p.error {
+  color: red;
+}
+
+div.about{
+  text-align:justify;
+  font-size: 13pt;
+}
+
+img.about{
+  margin:auto;
+  margin-bottom: 30px;
+  display: block;
+  max-width: 45%;
 }
 
 .mb100 {
@@ -206,18 +256,18 @@ div.cs-commentaires {
 }
 
 .bandeau{
-  font-family : 'CookieAndMilk';
+  font-family : 'ACookieStoryFont';
   text-align: center;
   line-height: 55px;
   width: 100%;
   height: 50px;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 2px solid #595959;
+  border-bottom: 2px solid #595959;
   background-color: white;
 }
 
 .bandeau ul {
-  font-size: 20pt;
+  font-size: 16pt;
 }
 
 .bandeau ul {
@@ -231,25 +281,26 @@ div.cs-commentaires {
 }
 
 a:link{
-  color:black;
+  color:#595959;
   background-color:transparent;
   text-decoration:none;
 }
 
 a:visited{
-  color:black;
+  color:#595959;
   background-color:transparent;
   text-decoration:none;
 }
 
 a:hover{
-  color:black;
+  color:#595959;
   background-color:transparent;
-  text-decoration:none
+  text-decoration:underline;
+  text-decoration-color: #595959;
 }
 
 a:active{
-  color:black;
+  color:#595959;
   background-color:transparent;
   text-decoration:none;
 }
@@ -283,6 +334,8 @@ ul.ingredient {
 div.feed {
   display: flex;
   margin: 20px 0;
+  align-items: center;
+  justify-content: center;
 }
 
 div.feed span {
@@ -301,4 +354,39 @@ div.index {
 
 div.index > * {
   margin-left: 30%;
+}
+
+.commentaire-pseudo{
+  font-family: 'ACookieStoryFont';
+  font-weight: bold;
+  font-size: 14pt;
+  font-color: #595959;
+}
+
+.commentaire-date{
+  font-family: 'CookieAndMilkItalic'
+  font-style: italic;
+}
+
+.commentaire-contenu {
+  padding-left: 10px ;
+}
+
+.leave_com{
+  font-family: 'ACookieStoryFont';
+  font-size: 14pt;
+  font-color: #595959;
+}
+
+.form-commentaires{
+  font-family: 'ACookieStoryFont';
+  font-weight: bold;
+}
+
+.cs-ingredients, .cs-story, .cs-recette, .cs-commentaires, .form-commentaires, .leave_com {
+  padding: 0 10%;
+}
+
+.categorie-image:hover {
+  opacity: 0.75
 }

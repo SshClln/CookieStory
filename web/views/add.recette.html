@@ -3,7 +3,7 @@
 <div class="text-center">
   <a class="btn btn-default" data-toggle="collapse" data-target="#titre-collapse" data-parent="#myGroup">Titre</a>
   <a class="btn btn-default" data-toggle="collapse" data-target="#imageH-collapse" data-parent="#myGroup">Photo H</a>
-  <a class="btn btn-default">Photo V</a>
+  <a class="btn btn-default" data-toggle="collapse" data-target="#imageV-collapse" data-parent="#myGroup">Photo V</a>
   <a class="btn btn-default" data-toggle="collapse" data-target="#story-collapse" data-parent="#myGroup">Story</a>
   <a class="btn btn-default" data-toggle="collapse" data-target="#ingredients-collapse" data-parent="#myGroup">Ingredients</a>
   <a class="btn btn-default" data-toggle="collapse" data-target="#recette-collapse" data-parent="#myGroup">Recette</a>
@@ -27,7 +27,21 @@
 
 <div class="collapse indent" id="imageH-collapse">
   <div class="panel-body text-center">
-    <form name="form" ng-submit="uploadPic(picFile)" >
+    <form name="form" ng-submit="uploadPic(picFile, 'H')" >
+      <div class="form-group">
+        <label>
+          Choisir la photo :
+          <input type = "file" ngf-select name="file" ng-model="picFile" accept="image/*" ngf-max-size="2MB"></input>
+          <button type="submit" class="btn btn-default">Upload</button>
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="collapse indent" id="imageV-collapse">
+  <div class="panel-body text-center">
+    <form name="form" ng-submit="uploadPic(picFile, 'V')" >
       <div class="form-group">
         <label>
           Choisir la photo :

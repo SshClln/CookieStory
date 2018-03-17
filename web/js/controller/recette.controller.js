@@ -20,12 +20,16 @@ else{
 }
 
   $scope.addElement = function (element, contenu, pos) {
+    console.log(contenu);
     if (element == 'titre') {
       $scope.layout.push({item:'titre', position:pos ? pos : position, contenu:contenu})
       $scope.recette.titre = contenu;
     }
     if (element == 'imageH') {
       $scope.layout.push({item:'imageH', position:pos ? pos : position, contenu:contenu})
+    }
+    if (element == 'imageV') {
+      $scope.layout.push({item:'imageV', position:pos ? pos : position, contenu:contenu})
     }
     if (element == 'story') {
       $scope.layout.push({item:'story', position:pos ? pos : position, contenu:contenu})
@@ -126,28 +130,32 @@ else{
       });
   }
 
-  $scope.uploadPic = function(file) {
+  $scope.uploadPic = function(file, orientation) {
     file.upload = Upload.upload({
       url: 'upload',
       method: 'POST',
       file: file,
     });
 
-    file.upload.then(function (response) {
-        if (response.data.success) {
-          $scope.addElement("imageH", response.data.path)
-          $scope.picFile=undefined;
+    file.upload.then(function success (response) {
+      if (response.data.success) {
+        if (orientation === 'V') {
+          console.log('V');
+          $scope.addElement("imageV", response.data.path)
         }
-      }, function (response) {
-      }, function (evt) {
-        // Math.min is to fix IE which reports 200% sometimes
-        file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-      });
-    }
+        else if (orientation === 'H') {
+          console.log('H');
+          $scope.addElement("imageH", response.data.path)
+        }
+        $scope.picFile=undefined;
+      }
+    }, function error (response) {
+    });
+  }
 
-    $scope.isNotSelectedTag = function (tag) {
-      return !$scope.recette.tags.some(function (tagRecette) {
-        return tagRecette.id == tag.id;
-      })
-    }
+  $scope.isNotSelectedTag = function (tag) {
+    return !$scope.recette.tags.some(function (tagRecette) {
+      return tagRecette.id == tag.id;
+    })
+  }
 }])

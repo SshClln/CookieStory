@@ -106,6 +106,13 @@ cookieStoryApp.config(function($stateProvider, $urlRouterProvider) {
               },
             }
         })
+        .state('about', {
+            url: '/about',
+            templateUrl: 'views/aPropos.html',
+            controller: 'AboutCtrl',
+            resolve: {
+            }
+        })
         .state('admin', {
             url: "/admin",
             abstract: true,

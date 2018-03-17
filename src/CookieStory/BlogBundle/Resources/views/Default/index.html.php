@@ -6,7 +6,7 @@
     <script type="text/javascript" src="js/build/vendor.js"></script>
     <script type="text/javascript" src="js/build/main.js"></script>
   </head>
-  <body>
+  <body ng-app="cookieStoryApp">
     <header>
       <div style ="text-align:center; margin-top:5px;">
         <a href="/acookiestory/#!/">
@@ -16,34 +16,30 @@
       <div class="bandeau" >
         <ul>
           <li><a href="/acookiestory/#!/">Accueil</a></li>
-          <li><a href="/acookiestory/#!/categories">Categories</a></li>
+          <li><a href="/acookiestory/#!/categories">Catégories</a></li>
           <li><a href="/acookiestory/#!/index">Index</a></li>
           <li>Blogroll</li>
-          <li>A propos</li>
+          <li><a href="/acookiestory/#!/about">A propos</a></li>
           <li>Contact</li>
         </ul>
       </div>
     </header>
-    <div class="recette container" ng-app="cookieStoryApp">
+    <div class="recette container">
       <div class="row">
         <div ui-view>
         </div>
       </div>
-      <div class="row" ng-controller="feedCtrl">
-        <hr />
-        <div class="footer text-center">
-          <a class="link_home" href="https://www.instagram.com/acookiestory/">Retrouvez-moi sur instagram !</a>
-          <!-- SnapWidget -->
-          <div class="row feed">
-            <span ng-repeat="image in images">
-              <a class="link_home" href="{{image.link}}">
-                <img ng-src="{{image.src}}" alt="">
-              </a>
-            </span>
-          </div>
-          <p class="footer-cookie">A Cookie Story</p>
-        </div>
+    </div>
+    <div class="footer text-center" ng-controller="feedCtrl">
+      <a class="link_home" href="https://www.instagram.com/acookiestory/">Retrouvez-moi sur instagram !</a>
+      <div class="row feed">
+        <span ng-repeat="image in images">
+          <a class="link_home" href="{{image.link}}">
+            <img ng-src="{{image.src}}" alt="">
+          </a>
+        </span>
       </div>
+      <p class="footer-cookie">A Cookie Story</p>
     </div>
   </body>
 </html>
