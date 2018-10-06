@@ -13,15 +13,17 @@
           <img class="logo_img" src="images/ACS_logo.png"></img>
         </a>
       </div>
-      <div class="bandeau" >
-        <ul>
-          <li><a href="/acookiestory/#!/">Accueil</a></li>
-          <li><a href="/acookiestory/#!/categories">Catégories</a></li>
-          <li><a href="/acookiestory/#!/index">Index</a></li>
-          <li>Blogroll</li>
-          <li><a href="/acookiestory/#!/about">A propos</a></li>
-          <li>Contact</li>
-        </ul>
+      <div class="bandeau-wrapper">
+        <div class="bandeau" >
+          <ul>
+            <li><a href="/acookiestory/#!/">Accueil</a></li>
+            <li><a href="/acookiestory/#!/categories">Catégories</a></li>
+            <li><a href="/acookiestory/#!/index">Index</a></li>
+            <li>Blogroll</li>
+            <li><a href="/acookiestory/#!/about">A propos</a></li>
+            <li>Contact</li>
+          </ul>
+        </div>
       </div>
     </header>
     <div class="recette container">

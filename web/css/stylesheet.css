@@ -79,11 +79,6 @@ html, body {
     overflow: auto;
 }
 
-header {
-    width: 85%;
-    margin: auto;
-}
-
 h1 {
   font-family: 'ACookieStoryFont';
   text-align: center;
@@ -255,11 +250,18 @@ img.about{
   margin-top: 25px;
 }
 
-.bandeau{
+.bandeau-wrapper {
+  width: 100%;
+  background: white;
+  display: flex;
+}
+
+.bandeau {
   font-family : 'ACookieStoryFont';
   text-align: center;
   line-height: 55px;
-  width: 100%;
+  width: 85%;
+  margin: auto;
   height: 50px;
   border-top: 2px solid #595959;
   border-bottom: 2px solid #595959;
