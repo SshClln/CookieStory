@@ -2,9 +2,12 @@
 <div class="row">
   <div class="col-xs-4 no-padding link_home" ng-repeat="recette in recettes | reverse | limitTo: 6">
     <div ng-repeat="layout in recette.layout | orderBy:'position' | limitTo:2 | reverse">
-      <a class="image_link"ui-sref="recette({slug:recette.slug})"><p ng-if="layout.item=='imageH'" class="cs-image-h" image="layout.contenu"></p></a>
+      <a class="image_link" ui-sref="recette({slug:recette.slug})">
+        <p ng-if="layout.item=='imageH'" class="cs-image-h" image="layout.contenu"></p>
+      </a>
       <br>
     </div>
+    
     <p class="text-center titre-home"><a href="/acookiestory/#!/recette/{{recette.slug}}">{{recette.titre}}</a></p>
   </div>
 </div>

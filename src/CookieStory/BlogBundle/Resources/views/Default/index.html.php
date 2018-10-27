@@ -26,11 +26,7 @@
         </div>
       </div>
     </header>
-    <div class="recette container">
-      <div class="row">
-        <div ui-view>
-        </div>
-      </div>
+    <div class="recette container" ui-view>
     </div>
     <div class="footer text-center" ng-controller="feedCtrl">
       <a class="link_home" href="https://www.instagram.com/acookiestory/">Retrouvez-moi sur instagram !</a>

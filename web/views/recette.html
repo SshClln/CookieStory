@@ -7,42 +7,39 @@
     <div ng-if="layout.item=='imageV'" class="cs-image-v" image="layout.contenu"></div>
     <div ng-if="layout.item=='imageH'" class="cs-image-h" image="layout.contenu"></div>
   </div>
+</div>
 
-  <div class="col-xs-12" ng-if="countCommentaire">
-    <div class="cs-commentaires" elements="recette.commentaires"></div>
-  </div>
+<hr>
+<div class="cs-commentaires" ng-if="countCommentaire" elements="recette.commentaires"></div>
 
-  <div class="col-xs-12">
-    <p class="leave_com"> Vous aussi, laissez un commentaire ! </p>
-    <form class="form-commentaires" name="form" ng-submit="addCommentaire(form)" novalidate>
-      <div class="form-group">
-        <label>
-          Nom* :
-          <input class="form-control" type="text" name="pseudo" ng-model="pseudo" required></input>
-        </label>
-        <p class="error" ng-show="form.$submitted && form.pseudo.$error.required">Ce champ est obligatoire.</p>
-        <br>
-        <label>
-          Mail* :
-          <input class="form-control" type="text" name="mail" ng-model="mail" required></input>
-        </label>
-        <p class="error" ng-show="form.$submitted && form.mail.$error.required">Ce champ est obligatoire.</p>
-        <br>
-        <label>
-          Website :
-          <input class="form-control" type="text" name="website" ng-model="website"></input>
-        </label>
-        <br>
-        <label>
-          Commentaire* :
-          <textarea class="form-control" type="text" name="commentaire" ng-model="contenu" required></textarea>
-        </label>
-        <p class="error" ng-show="form.$submitted && form.commentaire.$error.required">Ce champ est obligatoire.</p>
-      </div>
-      <button type="submit" class="btn btn-default">Envoyer</button>
-    </form>
-  </div>
+<div class="comment_section">
+  <p class="leave_com" ng-if="!countCommentaire"> Laissez un commentaire ! </p>
+  <p class="leave_com" ng-if="countCommentaire"> Vous aussi, laissez un commentaire ! </p>
+  <form class="form-commentaires" name="form" ng-submit="addCommentaire(form)" novalidate>
+    <div class="form-group">
+      <label>
+        Nom* :
+        <input class="form-control" ng-class="{'has-error': form.$submitted && form.pseudo.$error.required}" type="text" name="pseudo" ng-model="pseudo" required></input>
+      </label>
+      <p class="error" ng-show="form.$submitted && form.pseudo.$error.required">Ce champ est obligatoire.</p>
 
-  <div class="col-xs-12 mb50"></div>
+      <label>
+        Mail* :
+        <input class="form-control" ng-class="{'has-error': form.$submitted && form.mail.$error.required}" type="text" name="mail" ng-model="mail" required></input>
+      </label>
+      <p class="error" ng-show="form.$submitted && form.mail.$error.required">Ce champ est obligatoire.</p>
 
+      <label>
+        Website :
+        <input class="form-control" type="text" name="website" ng-model="website"></input>
+      </label>
+
+      <label>
+        Commentaire* :
+        <textarea class="form-control" rows="6" ng-class="{'has-error': form.$submitted && form.commentaire.$error.required}" type="text" name="commentaire" ng-model="contenu" required></textarea>
+      </label>
+      <p class="error" ng-show="form.$submitted && form.commentaire.$error.required">Ce champ est obligatoire.</p>
+    </div>
+    <button type="submit" class="btn btn-default">Envoyer</button>
+  </form>
 </div>

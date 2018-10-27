@@ -205,11 +205,6 @@ div.cs-image-v img {
   max-width: 80%;
 }
 
-div.cs-commentaires {
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-
 p.error {
   color: red;
 }
@@ -224,6 +219,15 @@ img.about{
   margin-bottom: 30px;
   display: block;
   max-width: 45%;
+}
+
+input, textarea {
+  font-family: 'Bookman Old Style';
+  font-weight: 400;
+}
+
+input.has-error, textarea.has-error {
+  border-color: red;
 }
 
 .mb100 {
@@ -374,6 +378,12 @@ div.index > * {
   padding-left: 10px ;
 }
 
+.comment_section {
+  margin-top: 25px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
 .leave_com{
   font-family: 'ACookieStoryFont';
   font-size: 14pt;
@@ -385,8 +395,14 @@ div.index > * {
   font-weight: bold;
 }
 
+.form-commentaires label {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
 .cs-ingredients, .cs-story, .cs-recette, .cs-commentaires, .form-commentaires, .leave_com {
   padding: 0 10%;
+  width: 100%;
 }
 
 .categorie-image:hover {
