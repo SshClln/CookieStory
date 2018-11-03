@@ -82,13 +82,13 @@ html, body {
 h1 {
   font-family: 'ACookieStoryFont';
   text-align: center;
-  font-size: 40pt;
+  font-size: 48pt;
   width: 100%;
 }
 
 h2 {
   font-family: 'ACookieStoryFont';
-  font-size: 20pt;
+  font-size: 28pt;
   line-height: 32pt;
   width: 100%;
 }
@@ -96,13 +96,13 @@ h2 {
 h3 {
   font-family: 'ACookieStoryFont';
   font-style: italic;
-  font-size: 16pt;
+  font-size: 24pt;
   width: 100%;
 }
 
 .titre-home {
   font-family: 'ACookieStoryFont';
-  font-size: 18pt;
+  font-size: 26pt;
   clear: both;
 }
 
@@ -121,19 +121,19 @@ a.link_home:hover {
 .footer {
   background-color: #f8f8f8;
   font-family: 'ACookieStoryFont';
-  font-size: 14pt;
+  font-size: 22pt;
   padding: 10px 0;
   margin-top: 20px;
 }
 
 .footer-cookie {
   font-family: 'ACookieStoryFont';
-  font-size: 12pt;
+  font-size: 20pt;
   margin: 0;
 }
 
 div.recette .titre {
-  font-size: 54pt;
+  font-size: 62pt;
   font-family: 'ACookieStoryFont';
   margin-top: 0.5em;
   /*text-shadow: 1px 1px rgb(112, 132, 112), 0px -1px rgb(112, 132, 112), -1px 0px rgb(112, 132, 112), 1px 0px rgb(112, 132, 112), 0px 1px rgb(112, 132, 112), -1px -1px rgb(112, 132, 112), 1px -1px rgb(112, 132, 112), -1px 1px rgb(112, 132, 112);
@@ -141,7 +141,7 @@ div.recette .titre {
 }
 
 div.recette h3.sousTitre {
-  font-size: 28pt;
+  font-size: 36pt;
   font-family: 'ACookieStoryFont';
   padding: 1em 0 0.5em;
 }
@@ -273,7 +273,7 @@ input.has-error, textarea.has-error {
 }
 
 .bandeau ul {
-  font-size: 16pt;
+  font-size: 24pt;
 }
 
 .bandeau ul {
@@ -365,7 +365,7 @@ div.index > * {
 .commentaire-pseudo{
   font-family: 'ACookieStoryFont';
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 22pt;
   font-color: #595959;
 }
 
@@ -386,7 +386,7 @@ div.index > * {
 
 .leave_com{
   font-family: 'ACookieStoryFont';
-  font-size: 14pt;
+  font-size: 22pt;
   font-color: #595959;
 }
 
